@@ -34,7 +34,7 @@ container.addEventListener("pointerenter", e => {
   cursorElements.forEach(element => {
     TweenMax.to(element.name, element.speed, 
       { top: 0, 
-        left: 0 
+        left: 0,
       });
   });
   positionCircle(e);
@@ -64,7 +64,8 @@ function positionCircle(e) {
   cursorElements.forEach(element => {
     TweenMax.to(element.name, element.speed, { 
       x: relX, 
-      y: relY 
+      y: relY,
+      ease: Expo.easeOut
     });
   });
 }
