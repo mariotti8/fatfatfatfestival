@@ -1,5 +1,5 @@
 body {
-  background: #0e3741;
+  background: #141313;
   margin: 0;
   max-width: 100%;
   width: 100%;
@@ -13,7 +13,7 @@ body {
   height: 10vh;
   width: 100vw;
   max-width: 100%;
-  background-color: #1f433f;
+  background-color: #F2E0D8;
   box-sizing: border-box;
 }
 
@@ -21,7 +21,7 @@ body {
   cursor: none;
   touch-action: none;
   margin: 70px;
-  background: #1f433f;
+  background: #F2E0D8;
 }
 
 .section {
@@ -51,9 +51,18 @@ body {
 .st1{fill:#141313;}
 .st2{fill:#F2E0D8;}
 
-.text1, .text2 {
+.text1, .text2, .text3, .text4, .text5, .text6, .text7, .text8, .text9, .text10, .text11, .text12, .text14 {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 800px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.text13 {
+  z-index: 0;
+  position: absolute;
+  width: 800px;
+  height: 800px;
   pointer-events: none;
 }
