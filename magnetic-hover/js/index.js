@@ -1,7 +1,7 @@
 
 const cursorElementsList = [
-  { name: 'text1', speed: 0.1 }, 
-  { name: 'text2', speed: 0.2 }
+  { name: 'text1', speed: 0.3 }, 
+  { name: 'text2', speed: 0.4 }
 ];
 const container = document.getElementById("container");
 
