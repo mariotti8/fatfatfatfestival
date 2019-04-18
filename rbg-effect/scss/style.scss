@@ -1,0 +1,81 @@
+$base: 1vh;
+
+html{
+  font-size: $base
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+  background: white;
+  color: white;
+  font-size: 2rem;
+}
+$move: 10px;
+
+.section{
+  height: 100vh;
+  position: relative;
+}
+
+.center{
+  position: absolute;
+  top: calc(50% - 25rem);
+  left: calc(50% - 25rem);
+  width: 50rem;
+  height: 50rem;
+  overflow: hidden;
+  &.full{
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  &.one{ .r, .g, .b{
+      background-image: url(http://unsplash.it/g/600/600?image=495);
+  }}
+  &.two{ .r, .g, .b{
+      background-image: url(http://unsplash.it/g/800/600?image=781);
+  }}
+  &.three{ .r, .g, .b{
+      background-image: url(http://unsplash.it/g/600/600?image=942);
+  }}
+  &.four{ .r, .g, .b{
+      background-image: url(http://unsplash.it/g/800/600?image=363);
+  }}
+  &.five{ .r, .g, .b{
+      background-image: url(http://unsplash.it/g/600/600?image=396);
+  }}
+  .r, .g, .b{
+    width: calc(100% + #{$move*2});
+    height: calc(100% + #{$move*2});
+    position: absolute;
+    top: -$move;
+    left: -$move;
+    background-size:cover;
+    mix-blend-mode: screen;
+    background-blend-mode: darken;
+  }
+  .r{
+    background-color: rgba(255,0,0,1);
+  }
+  .g{
+    background-color: rgba(0,255,0,1);
+  }
+  .b{
+    background-color: rgba(0,0,255,1);
+  }
+  
+}
+
+.sig{
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 100;
+  font-family: sans-serif;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+}

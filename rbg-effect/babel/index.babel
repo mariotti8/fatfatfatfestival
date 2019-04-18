@@ -1,0 +1,35 @@
+let speed = 300;
+let amount = 30
+
+let scroll = 0;
+let smooth = 0;
+let diff = 0;
+
+$(document).on('scroll', (event) => {
+  scroll = $(window).scrollTop();
+})
+
+let oldTime = null;
+let delta = 0;
+
+const animate =  (t) =>{
+  if (oldTime)
+    delta = t - oldTime
+  smooth += (scroll - smooth) * delta / speed;
+  diff = scroll - smooth;
+  
+  let translateCenter = diff * -2/amount;
+  let translateRed = diff * 3/amount;
+  let translateGreen = diff * 2/amount;
+  let translateBlue = diff * 1/amount;
+  
+  $('.center').css('transform', 'translateY('+translateCenter+'px)')
+  $('.r').css('transform', 'translateY('+translateRed+'px)')
+  $('.g').css('transform', 'translateY('+translateGreen+'px)')
+  $('.b').css('transform', 'translateY('+translateBlue+'px)')
+  
+  oldTime = t;
+  requestAnimationFrame(animate)
+}
+
+requestAnimationFrame(animate)
