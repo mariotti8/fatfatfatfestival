@@ -4,7 +4,6 @@ const DAMPING_COEFF = 0.4;
 const SPRING_CONSTANT = 0.075;
 const container = document.getElementById('container');
 const wrapper = document.getElementById('wrapper');
-const text3 = document.getElementById('text3');
 
 const globalState = {
   mouseX: wrapper.offsetLeft + wrapper.offsetWidth / 2,
@@ -17,7 +16,6 @@ window.addEventListener("resize", event => {
   globalState.mouseY = wrapper.offsetTop + wrapper.offsetHeight / 2;
 });
 
-
 container.addEventListener("mousemove", event => {
   globalState.mouseX = event.pageX;
   globalState.mouseY = event.pageY;
@@ -28,10 +26,9 @@ container.addEventListener("touchstart", event => {
   globalState.mouseY = event.pageY;
 });
 
-container.addEventListener("mouseleave", event => {
+container.addEventListener("mouseleave", () => {
   globalState.mouseX = wrapper.offsetLeft + wrapper.offsetWidth / 2;
   globalState.mouseY = wrapper.offsetTop + wrapper.offsetHeight / 2;
-
 });
 
 const createSpring = ({ getTargetX, getTargetY, draw }) => {
@@ -43,8 +40,6 @@ const createSpring = ({ getTargetX, getTargetY, draw }) => {
   };
 
   return {
-    // consumed by other springs when
-    // chaining stuff together
     getX: () => state.posX,
     getY: () => state.posY,
 
