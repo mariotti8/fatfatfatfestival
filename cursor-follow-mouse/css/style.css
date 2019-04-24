@@ -1,0 +1,13 @@
+ #cursor {
+       height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+   position: absolute;
+    }
+
+html, body {
+  cursor: url("https://uploads-ssl.webflow.com/5a841cafef2b990001bcadd1/5cc0602af9312f57ec3abb85_default.svg"), pointer;
+
+}
+ 

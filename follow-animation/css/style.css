@@ -11,6 +11,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  width: 600px;
+  height: 600px;
 }
 
 #container {
@@ -33,24 +35,17 @@ body {
 }
 
 .text1, .text2, .text3, .text4, .text5, .text6, .text7, .text8, .text9, .text10, .text11, .text12, .text14 {
-  position: absolute;
+  /* position: absolute;
   width: 600px;
   height: 600px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 1; */
 }
 
 .text13 {
-  z-index: 0;
+  /* z-index: 0;
   position: absolute;
   width: 600px;
   height: 600px;
-  pointer-events: none;
-}
-
-.blobby-bg {
-  height: 660px;
-  width: 660px;
-  border-radius: 50%;
-  background: #fbbb95;
+  pointer-events: none; */
 }

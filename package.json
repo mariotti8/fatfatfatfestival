@@ -1,0 +1,19 @@
+{
+  "name": "scroll",
+  "version": "1.0.0",
+  "description": "FAT FAT FAT Festival Project",
+  "main": "imagesloaded.pkgd.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariotti8/fatfatfatfestival.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariotti8/fatfatfatfestival/issues"
+  },
+  "homepage": "https://github.com/mariotti8/fatfatfatfestival#readme"
+}
