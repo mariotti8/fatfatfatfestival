@@ -20,14 +20,14 @@ const animate = t => {
   diff = scroll - smooth;
 
   let translateCenter = diff * -2 / amount;
-  let translateRed = diff * 5 / amount;
+  let translateRed = diff * 2 / amount;
   let translateGreen = diff * 4 / amount;
   let translateBlue = diff * 3 / amount;
 
   document.querySelector('.center').style.transform = 'translateY(' + translateCenter + 'px)';
   document.querySelector('.r').style.transform = 'translateY(' + translateRed + 'px)';
-  document.querySelector('.g').style.transform = 'translateY(' + translateGreen + 'px)';
-  document.querySelector('.b').style.transform = 'translateY(' + translateBlue + 'px)';
+  // document.querySelector('.g').style.transform = 'translateY(' + translateGreen + 'px)';
+  // document.querySelector('.b').style.transform = 'translateY(' + translateBlue + 'px)';
 
   oldTime = t;
   requestAnimationFrame(animate);

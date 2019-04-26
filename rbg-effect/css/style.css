@@ -30,8 +30,9 @@ body {
   height: 100vh;
 }
 .center.one .r, .center.one .g, .center.one .b {
-  background-image: url(http://unsplash.it/g/600/600?image=495);
+  background-image: url('./girls.jpg');
 }
+
 .center.two .r, .center.two .g, .center.two .b {
   /* background-image: url(http://unsplash.it/g/800/600?image=781); */
 }
@@ -54,15 +55,18 @@ body {
   mix-blend-mode: screen;
   background-blend-mode: darken;
 }
-.center .r {
-  background-color: red;
+ .r {
+  /* background-color: red; */
+  filter: url(#sepia);
 }
-.center .g {
-  background-color: lime;
-}
-.center .b {
-  background-color: blue;
-}
+/* .center .g {
+  /* background-color: lime; */
+  /* filter: url(#sepia); */
+/* } */
+/* .center .b { */
+  /* background-color: blue; */
+  /* filter: url(#sepia); */
+/* }   */
 
 .sig {
   position: fixed;
