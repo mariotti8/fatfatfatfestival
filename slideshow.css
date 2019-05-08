@@ -840,3 +840,187 @@ main {
 		background-size: 100% 6px;
 	}
 }
+
+.body {
+  background-color: #f3e1d8;
+}
+
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  margin-right: 6vw;
+}
+
+.image-face {
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  /* width: 28vw; */
+  padding: 0.8vw;
+  border-style: solid;
+  border-width: 2.2px;
+  border-color: #151414;
+  background-color: #f3e1d8;
+}
+
+.img {
+  position: relative;
+  z-index: 1;
+}
+
+/* .scanlines {
+  position: relative;
+  z-index: 2;
+  display: none;
+} */
+
+.html-embed-2 {
+  display: none;
+}
+
+.image-side {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 2;
+  border-style: solid;
+  border-width: 2.2px;
+  border-color: #151414;
+  background-color: hsla(19.354838709677423, 30.10%, 79.80%, 1.00);
+  -webkit-transform: translate(0.8vw, 0.8vw);
+  -ms-transform: translate(0.8vw, 0.8vw);
+  transform: translate(0.8vw, 0.8vw);
+}
+
+.image-side.side {
+  z-index: 1;
+  -webkit-transform: translate(1.6vw, 1.6vw);
+  -ms-transform: translate(1.6vw, 1.6vw);
+  transform: translate(1.6vw, 1.6vw);
+}
+
+.artist-title-container {
+  position: absolute;
+  z-index: 10;
+}
+
+.artist-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: Adieu, sans-serif;
+  color: #141313;
+  font-size: 4vw;
+  line-height: 4vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.heading-row2 {
+  color: #141313;
+}
+
+.number {
+  font-family: 'Nb international mono', sans-serif;
+  color: #141313;
+  font-size: 3vw;
+  line-height: 3vw;
+  letter-spacing: -0.1em;
+}
+
+.image-number-container {
+  position: relative;
+  left: -15.6vw;
+  margin-bottom: 10px;
+}
+
+.exhibition-container {
+  position: relative;
+  left: -240px;
+  margin-bottom: 10px;
+}
+
+.exhibition-container.exh {
+  left: -7.9vw;
+  top: 2.9vw;
+  margin-bottom: 0px;
+}
+
+.exhibition {
+  font-family: 'Nb international', sans-serif;
+  color: #141313;
+  font-size: 0.9vw;
+  line-height: 2vw;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+  .image-face {
+    border-width: 1.8px;
+  }
+  .image-side {
+    border-width: 1.8px;
+  }
+}
+/* 
+@media (max-width: 479px) {
+  .image-face {
+    width: 86vw;
+    padding: 1.5vw;
+    border-width: 1.7px;
+  }
+  .image-side {
+    border-width: 1.7px;
+    -webkit-transform: translate(1.8vw, 1.8vw);
+    -ms-transform: translate(1.8vw, 1.8vw);
+    transform: translate(1.8vw, 1.8vw);
+  }
+  .image-side.side {
+    -webkit-transform: translate(3.6vw, 3.6vw);
+    -ms-transform: translate(3.6vw, 3.6vw);
+    transform: translate(3.6vw, 3.6vw);
+  }
+} */
+
+@font-face {
+  font-family: 'Nb international mono';
+  src: url('../fonts/NB-International-Mono.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nb international';
+  src: url('../fonts/NB-International-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Adieu';
+  src: url('../fonts/Adieu-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
