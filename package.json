@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mariotti8/fatfatfatfestival/issues"
   },
-  "homepage": "https://github.com/mariotti8/fatfatfatfestival#readme"
+  "homepage": "https://github.com/mariotti8/fatfatfatfestival#readme",
+  "dependencies": {
+    "soundcloud-audio": "^1.4.0"
+  }
 }

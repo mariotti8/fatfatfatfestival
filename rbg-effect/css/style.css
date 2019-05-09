@@ -45,6 +45,7 @@ body {
 .center.five .r, .center.five .g, .center.five .b {
   /* background-image: url(http://unsplash.it/g/600/600?image=396); */
 }
+
 .center .r, .center .g, .center .b {
   width: calc(100% + 20px);
   height: calc(100% + 20px);
@@ -52,21 +53,27 @@ body {
   top: -10px;
   left: -10px;
   background-size: cover;
-  mix-blend-mode: screen;
-  background-blend-mode: darken;
+  mix-blend-mode: lighten;
+	background-blend-mode: darken;
 }
  .r {
-  /* background-color: red; */
+  transition: filter 5s;
+  filter: none;
+}
+
+.filter {
   filter: url(#sepia);
 }
-/* .center .g {
-  /* background-color: lime; */
+
+
+.center .g {
+  /* background-color: black; */
   /* filter: url(#sepia); */
-/* } */
-/* .center .b { */
-  /* background-color: blue; */
+}
+.center .b {
+  /* background-color: black; */
   /* filter: url(#sepia); */
-/* }   */
+ }  
 
 .sig {
   position: fixed;

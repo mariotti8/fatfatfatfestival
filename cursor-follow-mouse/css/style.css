@@ -1,13 +1,86 @@
- #cursor {
-       height: 25px;
+html, body {
+  cursor: url("https://cdn.jsdelivr.net/gh/mariotti8/fatfatfatfestival@68c1027/assets/cursor.png"), pointer;
+  background: #ede3de;
+}
+
+#cursor {
+  height: 25px;
   width: 25px;
   background-color: #bbb;
   border-radius: 50%;
-   position: absolute;
-    }
-
-html, body {
-  cursor: url("https://cdn.jsdelivr.net/gh/mariotti8/fatfatfatfestival@b85e71a/assets/cursor.svg"), pointer;
-
+  position: fixed;
+  pointer-events: none;
+  transition: transform .4s; /* Animation */
+  color: #bbb;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  mix-blend-mode: difference;
+  z-index: 10000;
 }
- 
+
+.next {
+  text-align: center;
+  font-size: 5px;
+  display: none;
+  margin-top: 8px;
+}
+
+.container {
+  /* pointer-events: none; */
+  /* cursor: url("https://cdn.jsdelivr.net/gh/mariotti8/fatfatfatfestival@68c1027/assets/cursor.png"), pointer; */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+a {
+  margin: 50px;
+  color: rgb(68, 68, 68);
+  text-decoration: none;
+  cursor: url("https://cdn.jsdelivr.net/gh/mariotti8/fatfatfatfestival@fe0623e/assets/pointer.png"), pointer;
+}
+
+.content {
+  /* cursor: url("https://cdn.jsdelivr.net/gh/mariotti8/fatfatfatfestival@fe0623e/assets/cursor.png"), pointer; */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.element {
+  width: 300px;
+  height: 1000px;
+  background: black;
+}
+
+.el {
+  width: 300px;
+  height: 100px;
+  background: red;
+}
+
+
+.cursor {
+position: fixed;
+height: 10px;
+width: 10px;
+border-radius: 50%;
+mix-blend-mode: difference;
+}
+
+  .cursor-v {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transition: transform .4s; /* Animation */
+    color: #bbb;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    mix-blend-mode: difference;
+    z-index: 10000;
+  }
