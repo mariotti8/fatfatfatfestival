@@ -75,6 +75,9 @@ const x = window.matchMedia("(min-width: 991px)")
             this.DOM.subtitle = this.DOM.el.querySelector('.caption');
             this.DOM.imgWrap = this.DOM.el.querySelector('.img-wrap');
             this.DOM.img = this.DOM.imgWrap.querySelector('.img');
+            this.DOM.imageSliderFace = this.DOM.img.querySelector('.image-slider-face');
+            this.DOM.imageContainer = this.DOM.imageSliderFace.querySelector('.image-container');
+
         }
         move(direction, val) {
             return new Promise((resolve, reject) => {
@@ -361,7 +364,7 @@ const x = window.matchMedia("(min-width: 991px)")
                 if (this.isAnimating || !x.matches) {
                     return;
                 }
-                this.centerSlide.DOM.imgWrap.classList.add('scanlines');
+                this.centerSlide.DOM.imageContainer.classList.add('scanlines');
                 new TimelineMax()
                     .to(this.centerSlide.DOM.imgWrap, 0.7, {
                         ease: Expo.easeOut,
@@ -390,7 +393,7 @@ const x = window.matchMedia("(min-width: 991px)")
                 if (this.isAnimating || !x.matches) {
                     return;
                 }
-                this.centerSlide.DOM.imgWrap.classList.remove('scanlines');
+                this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
 
                 new TimelineMax().to(this.centerSlide.DOM.imgWrap, 0.7, {
                     ease: Expo.easeOut,
