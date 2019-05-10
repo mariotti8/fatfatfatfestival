@@ -389,7 +389,7 @@ const x = window.matchMedia("(min-width: 991px)")
             };
             this.DOM.interaction.center.addEventListener('mouseenter', this.mouseenterCenterFn);
 
-            this.mouseleaveCenterFn = () => {                
+            this.mouseleaveCenterFn = () => {
                 if (this.isAnimating || !x.matches) {
                     return;
                 }
@@ -485,6 +485,9 @@ const x = window.matchMedia("(min-width: 991px)")
             movingSlides.forEach(slide => promises.push(slide[action === 'open' ? 'animateElementsOut' : 'animateElementsIn'](contentItem)));
 
             if (action === 'open') {
+                if (this.centerSlide.DOM.imageContainer.classList.contains('scanlines')) {
+                    this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
+                }
                 contentItem.classList.add('content__item--current');
             }
             Promise.all(promises).then(() => {
