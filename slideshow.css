@@ -13,6 +13,12 @@ summary {
   display: block;
 }
 
+.revealer,
+.content,
+.grid--slideshow {
+  margin-top: 10vw;
+}
+
 audio,
 canvas,
 video {
@@ -846,6 +852,12 @@ main {
 }
 
 @media screen and (max-width: 479px) {
+  .revealer,
+  .content,
+  .grid--slideshow {
+    margin-top: 0;
+  }
+
   .grid {
     grid-template-columns: repeat(3, calc((100% + 86vw) / 3));
   }
@@ -912,6 +924,12 @@ main {
 }
 
 
+/* BASE END */
+
+.body {
+  background-color: #f3e1d8;
+}
+
 .container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -934,7 +952,7 @@ main {
   align-items: center;
 }
 
-.image-slider-wrapper {
+.image-wrapper {
   position: relative;
   margin-right: 6vw;
 }
@@ -1012,7 +1030,6 @@ main {
 .number {
   font-family: 'Nb international mono', sans-serif;
   color: #141313;
-  font-size: 3vw;
   line-height: 3vw;
   letter-spacing: -0.1em;
 }
@@ -1053,7 +1070,6 @@ main {
     border-width: 1.8px;
   }
 }
-
 
 @font-face {
   font-family: 'Nb international mono';
