@@ -351,15 +351,6 @@ let isHover = false;
             this.clickCenterFn = () => this.openSlide();
             this.DOM.interaction.center.addEventListener('click', this.clickCenterFn);
 
-
-            // this.DOM.scanlines.addEventListener('mouseenter', () => {
-            //     console.log('enter')
-            //     this.centerSlide.DOM.img.classList.add('scanlines');
-            // });
-            // this.DOM.scanlines.addEventListener('mouseleave', () => {
-            //     this.centerSlide.DOM.img.classList.remove('scanlines');
-            // });
-
             this.mouseenterCenterFn = () => {
                 if (this.isAnimating) {
                     return;
@@ -376,14 +367,15 @@ let isHover = false;
                     }, 0);
 
                 new TimelineMax()
-                    .to(this.centerSlide.DOM.number, 1.7, {
-                        ease: Expo.easeIn,
-                        scale: 1.02
-                    })
-                    .to(this.centerSlide.DOM.number, 2.7, {
+                    .to(this.centerSlide.DOM.number, .2, {
                         ease: Expo.easeOut,
-                        scale: 1.05
-                    }, 0);
+                        yPercent: -50,
+                    })
+                new TimelineMax()
+                    .to(this.centerSlide.DOM.subtitle, .2, {
+                        ease: Expo.easeOut,
+                        yPercent: 50,
+                    })
                 isHover = true;
             };
             this.DOM.interaction.center.addEventListener('mouseenter', this.mouseenterCenterFn);
@@ -403,14 +395,16 @@ let isHover = false;
                         scale: 1
                     }, 0);
 
-                new TimelineMax().to(this.centerSlide.DOM.number, 0.7, {
-                    ease: Expo.easeOut,
-                    scale: 1
-                })
-                    .to(this.centerSlide.DOM.number, 0.7, {
+                new TimelineMax()
+                    .to(this.centerSlide.DOM.number, 1.7, {
                         ease: Expo.easeOut,
-                        scale: 1
-                    }, 0);
+                        yPercent: 0,
+                    })
+                new TimelineMax()
+                    .to(this.centerSlide.DOM.subtitle, .8, {
+                        ease: Expo.easeOut,
+                        yPercent: 0,
+                    })
 
                 isHover = false;
             };
