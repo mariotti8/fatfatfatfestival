@@ -16,7 +16,7 @@ summary {
 .revealer,
 .content,
 .grid--slideshow {
-  margin-top: 8vw;
+  margin-top: 5vw;
 }
 
 audio,
@@ -469,7 +469,7 @@ main {
 }
 
 .grid--slideshow {
-  transform: rotate(-8deg);
+	transform: translateX(3%) rotate(-8deg);
 }
 
 .grid--titles {
@@ -680,7 +680,7 @@ main {
 
   .grid {
     height: 100vh;
-    grid-template-columns: repeat(3, calc((100% - 26vw) / 3));
+    grid-template-columns: repeat(3, calc((100% - 42vw) / 3));
     grid-column-gap: 18vw;
   }
 
