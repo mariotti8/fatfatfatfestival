@@ -9,6 +9,9 @@
  * http://www.codrops.com
  */
 let isHover = false;
+const x = window.matchMedia("(min-width: 991px)")
+// myFunction(x) // Call listener function at run time
+// x.addListener(myFunction) // Attach listener function on state changes
 
 {
 
@@ -342,6 +345,7 @@ let isHover = false;
         }
         // Initialize events
         initEvents() {
+
             this.clickRightFn = () => this.navigate('right');
             this.DOM.interaction.right.addEventListener('click', this.clickRightFn);
 
@@ -352,7 +356,9 @@ let isHover = false;
             this.DOM.interaction.center.addEventListener('click', this.clickCenterFn);
 
             this.mouseenterCenterFn = () => {
-                if (this.isAnimating) {
+                console.log(x.matches);
+
+                if (this.isAnimating || !x.matches) {
                     return;
                 }
                 this.centerSlide.DOM.imgWrap.classList.add('scanlines');
@@ -380,8 +386,8 @@ let isHover = false;
             };
             this.DOM.interaction.center.addEventListener('mouseenter', this.mouseenterCenterFn);
 
-            this.mouseleaveCenterFn = () => {
-                if (this.isAnimating) {
+            this.mouseleaveCenterFn = () => {                
+                if (this.isAnimating || !x.matches) {
                     return;
                 }
                 this.centerSlide.DOM.imgWrap.classList.remove('scanlines');
