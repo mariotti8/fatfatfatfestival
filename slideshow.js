@@ -10,6 +10,7 @@
  */
 let isHover = false;
 const x = window.matchMedia("(min-width: 991px)")
+const max479 = window.matchMedia("(max-width: 479px)")
 // myFunction(x) // Call listener function at run time
 // x.addListener(myFunction) // Attach listener function on state changes
 
@@ -358,8 +359,6 @@ const x = window.matchMedia("(min-width: 991px)")
             this.DOM.interaction.center.addEventListener('click', this.clickCenterFn);
 
             this.mouseenterCenterFn = () => {
-                console.log(x.matches);
-
                 if (this.isAnimating || !x.matches) {
                     return;
                 }
@@ -484,11 +483,18 @@ const x = window.matchMedia("(min-width: 991px)")
             movingSlides.forEach(slide => promises.push(slide[action === 'open' ? 'animateElementsOut' : 'animateElementsIn'](contentItem)));
 
             if (action === 'open') {
+                if (max479.matches) {
+                    document.getElementsByTagName('main')[0].style.overflowY = 'scroll';
+                }
                 if (this.centerSlide.DOM.imageContainer.classList.contains('scanlines')) {
                     this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
                 }
                 contentItem.classList.add('content__item--current');
+            } else {
+                document.getElementsByTagName('main')[0].scrollTo(0, 0);
+                document.getElementsByTagName('main')[0].style.overflowY = 'hidden';
             }
+
             Promise.all(promises).then(() => {
                 if (action === 'close') {
                     contentItem.classList.remove('content__item--current');
