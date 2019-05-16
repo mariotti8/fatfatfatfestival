@@ -247,6 +247,15 @@ body {
 }
 
 body {
+  --color-bg: #f2e0d8;
+  --color-number: #000;
+  --color-title: #fff;
+  --color-caption: #000;
+  --color-content: #000;
+  --color-content-bg: var(--color-bg);
+  --color-reveal-bg: var(--color-bg);
+  color: var(--color-text);
+  background-color: var(--color-bg);
   font-family: "NB International", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
