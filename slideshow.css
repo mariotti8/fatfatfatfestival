@@ -25,6 +25,21 @@ video {
   display: inline-block;
 }
 
+article .img-wrap--content {
+  height: 570px;
+  width: 410px;
+  transform: translateX(-25%);
+}
+
+article header {
+  transform: translateX(-25%);
+}
+
+.content__item-header-title {
+  text-transform: uppercase;
+  font-size: 6vw;
+}
+
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -237,7 +252,7 @@ body {
   --color-link: #838288;
   --color-link-hover: #000;
   --color-number: #000;
-  --color-title: #000;
+  --color-title: #fff;
   --color-caption: #000;
   --color-content: #000;
   --color-content-bg: var(--color-bg);
@@ -418,9 +433,9 @@ main {
 }
 
 .content__item-header-meta::before {
-  content: "---------";
+  content: "———";
   margin: 0 0.5rem 0 0;
-  letter-spacing: -0.15rem;
+  letter-spacing: -0.2vw;
 }
 
 .content__item-copy {
@@ -469,10 +484,13 @@ main {
 }
 
 .grid--slideshow {
-	transform: translateX(3%) rotate(-8deg);
+  transform: translateX(3%) rotate(-8deg);
 }
 
 .grid--titles {
+  grid-template-columns: repeat(3, calc((100% + 20vw) / 3)) !important;
+  transform: translateX(-13%) !important;
+  grid-column-gap: 0 !important;
   align-items: center;
   text-align: center;
   cursor: default;
@@ -504,21 +522,31 @@ main {
 .grid__item--title {
   justify-content: center;
   align-items: center;
-  align-items: center;
-  flex-flow: row wrap;
-  font-size: 5vw;
-  letter-spacing: -0.03em;
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 4vw;
+  letter-spacing: -0.031em;
   margin: 0;
-  font-family: "Adieu", sans-serif;
+  font-family: "Adieu-Black", sans-serif;
   text-transform: uppercase;
-  font-weight: 600;
-
+  /* font-weight: 700; */
   color: var(--color-title);
 }
 
 .grid__item--title span {
   display: inline-block;
-  line-height: 5vw;
+  line-height: 4vw;
+  letter-spacing: -1.3vw;
+  color: #f2e0d8;
+  -webkit-text-stroke: 1.5px #141313;
+}
+
+.grid__item--title div {
+  line-height: 3vw;
+}
+
+.grid__item--title span.space {
+  width: 15px;
 }
 
 .grid__item--center,
@@ -575,26 +603,32 @@ main {
 }
 
 .img--content {
+  line-height: 5vw;
   background-position: 50% 38%;
 }
 
 .caption {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  /* font-size: 0.75rem; */
-  font-size: 1vw;
+  font-size: 0.8vw;
   line-height: 2.5vw;
   font-weight: 400;
   color: var(--color-caption);
   height: 4vw;
 }
 
-.caption::before {
-  content: "---------";
+p.date-caption::before {
+  content: "———";
   margin: 0 0.5rem 0 0;
-  letter-spacing: -0.15rem;
+  letter-spacing: -0.2vw;
 }
 
+p.date-caption {
+  margin: 0;
+}
+p.date-caption-2 {
+  line-height: 12px;
+}
 .img-wrap,
 .img--content,
 .caption,
@@ -740,9 +774,10 @@ main {
   }
 
   .content__item-copy {
-    max-width: 240px;
-    justify-self: end;
-    text-align: right;
+    text-align: left;
+    font-size: 1.7vw;
+    transform: translateX(-35%);
+    line-height: 2vw;
   }
 
   .caption {
@@ -775,7 +810,7 @@ main {
       ne-resize;
   }
 
-  .dark-mode .grid__item--cursor.grid__item--left {
+  /* .dark-mode .grid__item--cursor.grid__item--left {
     cursor: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='61px' height='44px' viewBox='0 0 61 44' style='enable-background:new 0 0 61 44;' xml:space='preserve'%3E %3Cpath fill='%23bb3a3a' d='M.613 21.671L21.584.7l5.642 5.642-11.74 11.74H60.45v7.978H15.487l11.74 11.739-5.643 5.642L.613 22.469a.57.57 0 0 1 0-.798z'/%3E %3C/svg%3E")
         30 22,
       sw-resize;
@@ -803,7 +838,7 @@ main {
     cursor: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='52px' height='52px' viewBox='0 0 52 52' style='enable-background:new 0 0 52 52;' xml:space='preserve'%3E %3Cpath fill='%23bb3a3a' d='M20.921 26.67L5.791 41.75C5.485 41.743.23 36.488.224 36.18L15.32 21.073.098 5.86 5.74.22l15.19 15.24L36.161.22l5.64 5.64-15.27 15.22 15.097 15.15c-.006.307-5.262 5.562-5.569 5.568L20.921 26.67z'/%3E %3C/svg%3E")
         21 21,
       pointer;
-  }
+  } */
 }
 
 @media screen and (max-width: 991px) {
@@ -824,16 +859,17 @@ main {
   }
 
   .grid__item--title {
-    font-size: 8vw;
+    font-size: 6vw;
     height: 22vw;
   }
+
   .number {
     font-size: 6vw;
   }
 
   .caption {
     font-size: 1.7vw;
-    margin: 22px 0 0 0;
+    margin: 4.5vw 0 0 0;
   }
 
   .grid__item--cursor {
@@ -849,6 +885,27 @@ main {
     left: 15vw;
     bottom: 15vw;
   }
+
+  .grid--titles {
+    grid-template-columns: repeat(3, calc((100% + 40vw) / 3)) !important;
+    grid-column-gap: 18vw !important;
+    transform: translateX(0%) !important;
+    align-items: center;
+    text-align: center;
+    cursor: default;
+  }
+
+  .grid__item--title span {
+    display: inline-block;
+    line-height: 6vw;
+    letter-spacing: -2vw;
+    color: #f2e0d8;
+    -webkit-text-stroke: 1px #141313;
+  }
+
+  .grid__item--title div {
+    line-height: 5vw;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -863,16 +920,38 @@ main {
   }
 
   .grid__item--title {
-    font-size: 10vw;
+    font-size: 8vw;
     height: 28vw;
   }
+
   .number {
     font-size: 8vw;
   }
 
   .caption {
     font-size: 2.2vw;
-    margin: 15px 0 0 0;
+    margin: 7vw 0 0 0;
+  }
+
+  .grid--titles {
+    grid-template-columns: repeat(3, calc((100% + 100vw) / 3)) !important;
+    grid-column-gap: 12vw !important;
+    transform: translateX(0%) !important;
+    align-items: center;
+    text-align: center;
+    cursor: default;
+  }
+
+  .grid__item--title span {
+    display: inline-block;
+    line-height: 6vw;
+    letter-spacing: -2.8vw;
+    color: #f2e0d8;
+    -webkit-text-stroke: 0.8px #141313;
+  }
+
+  .grid__item--title div {
+    line-height: 7vw;
   }
 
   .grid__item--cursor.grid__item--left::after {
@@ -922,9 +1001,6 @@ main {
     background-size: 100% 6px;
   }
 }
-
-
-/* BASE END */
 
 .body {
   background-color: #f3e1d8;
@@ -994,7 +1070,7 @@ main {
   border-style: solid;
   border-width: 2.2px;
   border-color: #151414;
-  background-color: hsla(19.354838709677423, 30.10%, 79.80%, 1.00);
+  background-color: hsla(19.354838709677423, 30.1%, 79.8%, 1);
   -webkit-transform: translate(0.8vw, 0.8vw);
   -ms-transform: translate(0.8vw, 0.8vw);
   transform: translate(0.8vw, 0.8vw);
@@ -1028,10 +1104,10 @@ main {
 }
 
 .number {
-  font-family: 'Nb international mono', sans-serif;
+  font-family: "Nb international", sans-serif;
   color: #141313;
   line-height: 3vw;
-  letter-spacing: -0.1em;
+  /* letter-spacing: -0.09em; */
 }
 
 .image-number-container {
@@ -1053,7 +1129,7 @@ main {
 }
 
 .exhibition {
-  font-family: 'Nb international', sans-serif;
+  font-family: "Nb international", sans-serif;
   color: #141313;
   font-size: 0.9vw;
   line-height: 2vw;
@@ -1065,27 +1141,58 @@ main {
 @media (max-width: 991px) {
   .image-slider-face {
     border-width: 1.8px;
+    padding: 1.3vw;
   }
   .image-slider-side {
     border-width: 1.8px;
   }
+
+  .image-slider-side {
+    -webkit-transform: translate(1.2vw, 1.2vw);
+    -ms-transform: translate(1.2vw, 1.2vw);
+    transform: translate(1.2vw, 1.2vw);
+  }
+
+  .image-slider-side.slider-side {
+    -webkit-transform: translate(2.4vw, 2.4vw);
+    -ms-transform: translate(2.4vw, 2.4vw);
+    transform: translate(2.4vw, 2.4vw);
+  }
+}
+
+@media (max-width: 479px) {
+  .image-slider-face {
+    padding: 1.8vw;
+  }
+
+  .image-slider-side {
+    -webkit-transform: translate(1.8vw, 1.8vw);
+    -ms-transform: translate(1.8vw, 1.8vw);
+    transform: translate(1.8vw, 1.8vw);
+  }
+
+  .image-slider-side.slider-side {
+    -webkit-transform: translate(3.6vw, 3.6vw);
+    -ms-transform: translate(3.6vw, 3.6vw);
+    transform: translate(3.6vw, 3.6vw);
+  }
 }
 
 @font-face {
-  font-family: 'Nb international mono';
-  src: url('../fonts/NB-International-Mono.ttf') format('truetype');
+  font-family: "Nb international mono";
+  src: url("../fonts/NB-International-Mono.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Nb international';
-  src: url('../fonts/NB-International-Regular.ttf') format('truetype');
+  font-family: "Nb international";
+  src: url("../fonts/NB-International-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Adieu';
-  src: url('../fonts/Adieu-Bold.otf') format('opentype');
+  font-family: "Adieu";
+  src: url("../fonts/Adieu-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
