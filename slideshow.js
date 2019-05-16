@@ -68,7 +68,7 @@ const x = window.matchMedia("(min-width: 991px)")
                 el: el
             };
             this.DOM.title = title;
-            charming(this.DOM.title);
+            // charming(this.DOM.title);
             this.DOM.titleLetters = [...this.DOM.title.querySelectorAll('span')];
             this.DOM.titleLetters.sort(() => Math.round(Math.random()) - 0.5);
             this.DOM.number = this.DOM.el.querySelector('.number');
@@ -77,7 +77,6 @@ const x = window.matchMedia("(min-width: 991px)")
             this.DOM.img = this.DOM.imgWrap.querySelector('.img');
             this.DOM.imageSliderFace = this.DOM.img.querySelector('.image-slider-face');
             this.DOM.imageContainer = this.DOM.imageSliderFace.querySelector('.image-container');
-
         }
         move(direction, val) {
             return new Promise((resolve, reject) => {
