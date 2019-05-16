@@ -1252,12 +1252,6 @@ p.date-caption-2 {
   height: 100%;
 }
 
-.scanlines {
-  position: relative;
-  z-index: 2;
-  display: none;
-}
-
 .html-embed-2 {
   display: none;
 }
