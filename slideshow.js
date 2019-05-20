@@ -69,7 +69,6 @@ const max479 = window.matchMedia("(max-width: 479px)")
                 el: el
             };
             this.DOM.title = title;
-            // charming(this.DOM.title);
             this.DOM.titleLetters = [...this.DOM.title.querySelectorAll('span')];
             this.DOM.titleLetters.sort(() => Math.round(Math.random()) - 0.5);
             this.DOM.number = this.DOM.el.querySelector('.number');
@@ -79,9 +78,12 @@ const max479 = window.matchMedia("(max-width: 479px)")
             this.DOM.imageSliderFace = this.DOM.img.querySelector('.image-slider-face');
             this.DOM.imageContainer = this.DOM.imageSliderFace.querySelector('.image-container');
         }
-        move(direction, val) {
+       
+        move(direction, val, titleGap) {
             return new Promise((resolve, reject) => {
                 const tx = direction === 'left' ? '+=' + val * -1 : '+=' + val;
+                const d = direction === 'left' ? '+=' + titleGap * -1 : '+=' + titleGap;
+
                 const duration = 1.2;
 
                 new TimelineMax({
@@ -108,7 +110,7 @@ const max479 = window.matchMedia("(max-width: 479px)")
                         ease: Quart.easeInOut
                     }, 0)
                     .to(this.DOM.title, duration * 1.05, {
-                        x: tx,
+                        x: d,
                         ease: Quart.easeInOut
                     }, 0);
             });
@@ -302,6 +304,11 @@ const max479 = window.matchMedia("(max-width: 479px)")
                 right: document.querySelector('.grid__item--right')
             };
 
+            this.DOM.mobileInteraction = {
+                left: document.querySelector('.arrow-left'),
+                right: document.querySelector('.arrow-right'),
+            }
+
             // this.DOM.scanlines = document.querySelector('.noise');
 
             this.setVisibleSlides();
@@ -345,15 +352,20 @@ const max479 = window.matchMedia("(max-width: 479px)")
             const s1 = this.slides[0].DOM.el.getBoundingClientRect();
             const s2 = this.slides[1].DOM.el.getBoundingClientRect();
             this.gap = MathUtils.distance(s1.left + s1.width / 2, s2.left + s2.width / 2, s1.top + s1.height / 2, s2.top + s2.height / 2);
+            const x1 =  [...document.querySelectorAll('.grid__item--title')][1].getBoundingClientRect();
+            const x2 =  [...document.querySelectorAll('.grid__item--title')][2].getBoundingClientRect();
+            this.titleGap = MathUtils.distance(x1.left + x1.width / 2, x2.left + x2.width / 2, x1.top + x1.height / 2, x2.top + x2.height / 2);
         }
         // Initialize events
         initEvents() {
 
             this.clickRightFn = () => this.navigate('right');
             this.DOM.interaction.right.addEventListener('click', this.clickRightFn);
+            this.DOM.mobileInteraction.right.addEventListener('click', this.clickRightFn);
 
             this.clickLeftFn = () => this.navigate('left');
             this.DOM.interaction.left.addEventListener('click', this.clickLeftFn);
+            this.DOM.mobileInteraction.left.addEventListener('click', this.clickLeftFn);
 
             this.clickCenterFn = () => this.openSlide();
             this.DOM.interaction.center.addEventListener('click', this.clickCenterFn);
@@ -441,19 +453,21 @@ const max479 = window.matchMedia("(max-width: 479px)")
 
             this.upcomingSlide = this.slides[upcomingPos];
             this.upcomingTitle = this.upcomingSlide.DOM.title;
+
             // Position upcomingSlide / upcomingTitle
             TweenMax.set(this.upcomingSlide.DOM.el, {
                 x: direction === 'right' ? this.gap * 2 : -1 * this.gap * 2,
                 opacity: 1
             });
+
             TweenMax.set(this.upcomingTitle, {
-                x: direction === 'right' ? this.gap * 2 : -1 * this.gap * 2,
+                x: direction === 'right' ? this.titleGap * 2 : -1 * this.titleGap * 2,
                 opacity: 1
             });
 
             const movingSlides = [this.upcomingSlide, this.centerSlide, this.rightSlide, this.leftSlide];
             let promises = [];
-            movingSlides.forEach(slide => promises.push(slide.move(direction === 'right' ? 'left' : 'right', this.gap)));
+            movingSlides.forEach(slide => promises.push(slide.move(direction === 'right' ? 'left' : 'right', this.gap, this.titleGap)));
             Promise.all(promises).then(() => {
                 // After all is moved, update the classes of the 3 visible slides and reset styles
                 movingSlides.forEach(slide => slide.reset());
@@ -490,9 +504,13 @@ const max479 = window.matchMedia("(max-width: 479px)")
                     this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
                 }
                 contentItem.classList.add('content__item--current');
+                this.DOM.mobileInteraction.left.style.display = 'none';
+                this.DOM.mobileInteraction.right.style.display = 'none';
             } else {
                 document.getElementsByTagName('main')[0].scrollTo(0, 0);
                 document.getElementsByTagName('main')[0].style.overflowY = 'hidden';
+                this.DOM.mobileInteraction.left.style.display = 'block';
+                this.DOM.mobileInteraction.right.style.display = 'block';
             }
 
             Promise.all(promises).then(() => {
