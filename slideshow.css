@@ -1466,7 +1466,7 @@ p.date-caption-2 {
 @media (max-width: 479px) {
   .artist-container {
     height: auto;
-    padding-top: 15vw;
+    padding-top: 28vw;
     padding-bottom: 15vw;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
