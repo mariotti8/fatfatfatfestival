@@ -11,6 +11,8 @@
 let isHover = false;
 const x = window.matchMedia("(min-width: 991px)")
 const max479 = window.matchMedia("(max-width: 479px)")
+const max991 = window.matchMedia("(max-width: 991px)")
+
 // myFunction(x) // Call listener function at run time
 // x.addListener(myFunction) // Attach listener function on state changes
 
@@ -75,10 +77,12 @@ const max479 = window.matchMedia("(max-width: 479px)")
             this.DOM.subtitle = this.DOM.el.querySelector('.caption');
             this.DOM.imgWrap = this.DOM.el.querySelector('.img-wrap');
             this.DOM.img = this.DOM.imgWrap.querySelector('.img');
-            this.DOM.imageSliderFace = this.DOM.img.querySelector('.image-slider-face');
-            this.DOM.imageContainer = this.DOM.imageSliderFace.querySelector('.image-container');
+            if (!this.DOM.img.classList.contains('more-artists')) {
+                this.DOM.imageSliderFace = this.DOM.img.querySelector('.image-slider-face');
+                this.DOM.imageContainer = this.DOM.imageSliderFace.querySelector('.image-container');
+            }
         }
-       
+
         move(direction, val, titleGap) {
             return new Promise((resolve, reject) => {
                 const tx = direction === 'left' ? '+=' + val * -1 : '+=' + val;
@@ -93,14 +97,14 @@ const max479 = window.matchMedia("(max-width: 479px)")
                         x: tx,
                         ease: Quart.easeInOut
                     }, 0)
-                    .to(this.DOM.imgWrap, duration * .5, {
-                        scaleX: 1.3,
-                        ease: Quart.easeIn
-                    }, 0)
-                    .to(this.DOM.imgWrap, duration * .5, {
-                        scaleX: 1,
-                        ease: Quart.easeOut
-                    }, duration * .5)
+                    // .to(this.DOM.imgWrap, duration * .5, {
+                    //     scaleX: 1.3,
+                    //     ease: Quart.easeIn
+                    // }, 0)
+                    // .to(this.DOM.imgWrap, duration * .5, {
+                    //     scaleX: 1,
+                    //     ease: Quart.easeOut
+                    // }, duration * .5)
                     .to(this.DOM.number, duration * .95, {
                         x: tx,
                         ease: Quint.easeInOut
@@ -352,8 +356,8 @@ const max479 = window.matchMedia("(max-width: 479px)")
             const s1 = this.slides[0].DOM.el.getBoundingClientRect();
             const s2 = this.slides[1].DOM.el.getBoundingClientRect();
             this.gap = MathUtils.distance(s1.left + s1.width / 2, s2.left + s2.width / 2, s1.top + s1.height / 2, s2.top + s2.height / 2);
-            const x1 =  [...document.querySelectorAll('.grid__item--title')][1].getBoundingClientRect();
-            const x2 =  [...document.querySelectorAll('.grid__item--title')][2].getBoundingClientRect();
+            const x1 = [...document.querySelectorAll('.grid__item--title')][1].getBoundingClientRect();
+            const x2 = [...document.querySelectorAll('.grid__item--title')][2].getBoundingClientRect();
             this.titleGap = MathUtils.distance(x1.left + x1.width / 2, x2.left + x2.width / 2, x1.top + x1.height / 2, x2.top + x2.height / 2);
         }
         // Initialize events
@@ -369,6 +373,7 @@ const max479 = window.matchMedia("(max-width: 479px)")
 
             this.clickCenterFn = () => this.openSlide();
             this.DOM.interaction.center.addEventListener('click', this.clickCenterFn);
+
 
             this.mouseenterCenterFn = () => {
                 if (this.isAnimating || !x.matches) {
@@ -500,17 +505,23 @@ const max479 = window.matchMedia("(max-width: 479px)")
                 if (max479.matches) {
                     document.getElementsByTagName('main')[0].style.overflowY = 'scroll';
                 }
+
+                if (max991.matches) {
+                    this.DOM.mobileInteraction.left.style.display = 'none';
+                    this.DOM.mobileInteraction.right.style.display = 'none';
+                }
+
                 if (this.centerSlide.DOM.imageContainer.classList.contains('scanlines')) {
                     this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
                 }
                 contentItem.classList.add('content__item--current');
-                this.DOM.mobileInteraction.left.style.display = 'none';
-                this.DOM.mobileInteraction.right.style.display = 'none';
             } else {
                 document.getElementsByTagName('main')[0].scrollTo(0, 0);
                 document.getElementsByTagName('main')[0].style.overflowY = 'hidden';
-                this.DOM.mobileInteraction.left.style.display = 'block';
-                this.DOM.mobileInteraction.right.style.display = 'block';
+                if (max991.matches) {
+                    this.DOM.mobileInteraction.left.style.display = 'block';
+                    this.DOM.mobileInteraction.right.style.display = 'block';
+                }
             }
 
             Promise.all(promises).then(() => {
