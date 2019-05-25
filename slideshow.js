@@ -494,6 +494,11 @@ const max991 = window.matchMedia("(max-width: 991px)")
             this.isAnimating = true;
 
             const contentItem = this.DOM.contentItems[this.center];
+            if (contentItem.classList.contains('last__article')) {
+                window.location.href = 'www.google.it';
+                return;
+            }
+            
             // Cursor styles related class
             this.DOM.el.classList[action === 'open' ? 'add' : 'remove']('content-open');
 
