@@ -495,7 +495,7 @@ const max991 = window.matchMedia("(max-width: 991px)")
 
             const contentItem = this.DOM.contentItems[this.center];
             if (contentItem.classList.contains('last__article')) {
-                window.location.href = 'www.google.it';
+                window.location.href = '/artists';
                 return;
             }
             
