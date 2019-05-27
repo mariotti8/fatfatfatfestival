@@ -439,6 +439,9 @@ const max991 = window.matchMedia("(max-width: 991px)")
 
             this.DOM.contentItems.forEach(item => {
                 item.querySelector('.img-wrap--content').addEventListener('click', () => this.closeSlide());
+                if (max991.matches) {
+                    document.querySelector('.mobile-close').addEventListener('click', () => this.closeSlide());
+                }
             });
         }
         navigate(direction) {
@@ -498,7 +501,7 @@ const max991 = window.matchMedia("(max-width: 991px)")
                 window.location.href = '/artists';
                 return;
             }
-            
+
             // Cursor styles related class
             this.DOM.el.classList[action === 'open' ? 'add' : 'remove']('content-open');
 
