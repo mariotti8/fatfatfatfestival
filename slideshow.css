@@ -25,14 +25,8 @@ video {
   display: inline-block;
 }
 
-article .img-wrap--content {
-  /* height: 570px;
-  width: 410px; */
-  /* transform: translateX(25%); */
-}
-
-article header {
-  /* transform: translateX(-25%); */
+.mobile-close {
+  display: none;
 }
 
 .content__item-header-title {
@@ -349,7 +343,7 @@ body {
   --color-number: #000;
   --color-title: #fff;
   --color-caption: #000;
-  --color-content: #000;
+  --color-content: rgb(44, 44, 44);
   --color-content-bg: var(--color-bg);
   --color-reveal-bg: var(--color-bg);
   color: var(--color-text);
@@ -625,7 +619,7 @@ main {
   margin: 0;
   font-family: "Adieu-Black", sans-serif;
   text-transform: uppercase;
-  /* font-weight: 700; */
+  font-weight: 900;
   color: var(--color-title);
 }
 
@@ -905,6 +899,30 @@ p.date-caption-2 {
     -webkit-overflow-scrolling: touch;
   }
 
+  .mobile-close {
+    position: absolute;
+    top: 3vw;
+    right: 3vw;
+  }
+
+  .label-close {
+    font-family: Adieu, sans-serif;
+    font-weight: 400;
+    color: #f2e0d7;
+    -webkit-text-stroke: 0.8px #141313;
+  }
+
+  .mobile-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+
+  .img-close {
+    width: 60px;
+  }
+
   .grid--slideshow,
   .grid--interaction {
     left: -5%;
@@ -1076,12 +1094,6 @@ p.date-caption-2 {
   z-index: 1;
 }
 
-/* .scanlines {
-  position: relative;
-  z-index: 2;
-  display: none;
-} */
-
 .html-embed-2 {
   display: none;
 }
@@ -1209,6 +1221,20 @@ p.date-caption-2 {
   .grid--slideshow {
     margin-top: 0;
   }
+  
+  .mobile-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+
+  .img-close {
+    width: 40px;
+  }
 
   .arrow-left,
   .arrow-right {
@@ -1246,7 +1272,7 @@ p.date-caption-2 {
   .grid__item--title span {
     display: inline-block;
     line-height: 6vw;
-    letter-spacing: -2.8vw;
+    letter-spacing: -2.2vw;
     color: #f2e0d8;
     -webkit-text-stroke: 0.8px #141313;
   }
@@ -1303,31 +1329,6 @@ p.date-caption-2 {
   .fa-container {
     right: 6.5vw;
   }
-}
-
-@font-face {
-  font-family: "Nb international mono";
-  src: url("../fonts/NB-International-Mono.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Nb international";
-  src: url("../fonts/NB-International-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Adieu";
-  src: url("../fonts/Adieu-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Adieu";
-  src: url("../fonts/Adieu-Black.otf") format("opentype");
-  font-weight: 900;
-  font-style: normal;
 }
 
 .body {
