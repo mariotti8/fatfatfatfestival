@@ -909,6 +909,7 @@ p.date-caption-2 {
     font-family: Adieu, sans-serif;
     font-weight: 400;
     color: #f2e0d7;
+    margin-bottom: 0;
     -webkit-text-stroke: 0.8px #141313;
   }
 
