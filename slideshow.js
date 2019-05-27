@@ -436,12 +436,13 @@ const max991 = window.matchMedia("(max-width: 991px)")
 
             this.resizeFn = () => this.calculateGap();
             window.addEventListener('resize', this.resizeFn);
+            
+            if (max991.matches) {
+                document.querySelectorAll('.mobile-close').forEach(el => el.addEventListener('click', () => this.closeSlide()));
+            }
 
             this.DOM.contentItems.forEach(item => {
                 item.querySelector('.img-wrap--content').addEventListener('click', () => this.closeSlide());
-                if (max991.matches) {
-                    document.querySelector('.mobile-close').addEventListener('click', () => this.closeSlide());
-                }
             });
         }
         navigate(direction) {
