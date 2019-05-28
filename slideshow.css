@@ -621,7 +621,7 @@ main {
 }
 
 .grid__item--title span {
-  font-family: "Adieu-Black", sans-serif;
+  font-family: "Adieu", sans-serif;
   text-transform: uppercase;
   font-weight: 900;
   display: inline-block;
