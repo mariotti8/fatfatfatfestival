@@ -735,6 +735,7 @@ p.date-caption-2 {
   cursor: pointer;
 }
 
+/* 
 .arrow-left {
   content: url("https://uploads-ssl.webflow.com/5a841cafef2b990001bcadd1/5ce71bff98d41d3dd14f881f_arrow-left.svg");
   bottom: 7vw;
@@ -753,7 +754,8 @@ p.date-caption-2 {
   z-index: 1000;
   transform: rotate(-8deg);
   width: 15vw;
-}
+} */
+
 .img-wrap--content::after {
   top: 0.5rem;
   right: 0.5rem;
