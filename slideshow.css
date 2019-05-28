@@ -617,13 +617,13 @@ main {
   font-size: 4vw;
   letter-spacing: -0.031em;
   margin: 0;
-  font-family: "Adieu-Black", sans-serif;
-  text-transform: uppercase;
-  font-weight: 900;
   color: var(--color-title);
 }
 
 .grid__item--title span {
+  font-family: "Adieu-Black", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
   display: inline-block;
   line-height: 4vw;
   letter-spacing: -1.3vw;
