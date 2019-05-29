@@ -43,6 +43,7 @@ const max991 = window.matchMedia("(max-width: 991px)")
     window.addEventListener('resize', calcWinsize);
 
     const getMousePos = (ev) => {
+        
         let posx = 0;
         let posy = 0;
         if (!ev) ev = window.event;
@@ -331,8 +332,8 @@ const max991 = window.matchMedia("(max-width: 991px)")
                     TweenMax.set(this.slides[i].DOM.img, {
                         x: mouseMoveVals.translation
                     });
-                    TweenMax.set(this.DOM.titlesInner, {
-                        x: -4 * mouseMoveVals.translation
+                    TweenMax.set(this.DOM.titlesWrap, {
+                        x: -1 * mouseMoveVals.translation
                     });
                     //TweenMax.set(this.DOM.el, {rotation: mouseMoveVals.rotation});
                     //TweenMax.set(this.DOM.titlesWrap, {rotation: -2*mouseMoveVals.rotation});
@@ -379,7 +380,7 @@ const max991 = window.matchMedia("(max-width: 991px)")
                 if (this.isAnimating || !x.matches) {
                     return;
                 }
-                this.centerSlide.DOM.imageContainer.classList.add('scanlines');
+                // this.centerSlide.DOM.imageContainer.classList.add('scanlines');
                 new TimelineMax()
                     .to(this.centerSlide.DOM.imgWrap, 0.7, {
                         ease: Expo.easeOut,
@@ -408,7 +409,7 @@ const max991 = window.matchMedia("(max-width: 991px)")
                 if (this.isAnimating || !x.matches) {
                     return;
                 }
-                this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
+                // this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
 
                 new TimelineMax().to(this.centerSlide.DOM.imgWrap, 0.7, {
                     ease: Expo.easeOut,
@@ -520,9 +521,9 @@ const max991 = window.matchMedia("(max-width: 991px)")
                     this.DOM.mobileInteraction.right.style.display = 'none';
                 }
 
-                if (this.centerSlide.DOM.imageContainer.classList.contains('scanlines')) {
-                    this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
-                }
+                // if (this.centerSlide.DOM.imageContainer.classList.contains('scanlines')) {
+                //     this.centerSlide.DOM.imageContainer.classList.remove('scanlines');
+                // }
                 contentItem.classList.add('content__item--current');
             } else {
                 document.getElementsByTagName('main')[0].scrollTo(0, 0);
