@@ -1516,11 +1516,16 @@ p.date-caption-2 {
 }
 
 .exhbition-item {
-  margin-top: 0.2vw;
+  margin-top: 2vw;
   font-family: "Nb international mono", sans-serif;
   color: #141313;
-  font-size: 0.7vw;
+  font-size: 1vw;
   line-height: 1vw;
+}
+
+.exh-1{
+  margin-top: 0.5vw;
+  
 }
 
 .artist-bio {
@@ -1532,7 +1537,7 @@ p.date-caption-2 {
   font-family: "Nb international", sans-serif;
   color: #141313;
   font-size: 1.2vw;
-  line-height: 1.4vw;
+  line-height: 1.6vw;
 }
 
 .inner-artist-wrapper {
